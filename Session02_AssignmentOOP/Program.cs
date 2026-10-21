@@ -19,6 +19,14 @@
 
             // b) because it controls object lifetime, store large data, support inheritance.
             #endregion
+
+            #region Q2
+            // a) the parent class is Shipment
+            // b) the child class is ExpressShipment
+            // c) trackingcode property is inherited
+            // d) to decrese code, easily test, inhance and maintane code
+
+            #endregion
             #endregion
         }
     }
