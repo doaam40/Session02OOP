@@ -60,7 +60,7 @@ namespace Session02_AssignmentOOP
                     deliveryFee = value;
             }
         }
-        public decimal EstimatedCost => DeliveryFee + (decimal)(Weight * 5);
+        public virtual decimal EstimatedCost => DeliveryFee + (decimal)(Weight * 5);
 
 
         public Shipment(string _trackingCode)

@@ -96,6 +96,10 @@
             Console.WriteLine($"Original Address: {address01.GetFullAddress()}");
             Console.WriteLine($"Copied Address: {address02.GetFullAddress()}");
             #endregion
+
+            #region Q2
+
+            #endregion
             #endregion
         }
     }
