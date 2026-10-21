@@ -7,9 +7,10 @@ namespace Session02_AssignmentOOP
     internal class DeliveryCenter
     {
         Shipment[] shipment;
+        public string CenterName { get; set; }
         public DeliveryCenter()
         {
-            shipment = new Shipment[10];
+            shipment = new Shipment[20];
         }
         public Shipment this[int index]
         {
@@ -45,6 +46,24 @@ namespace Session02_AssignmentOOP
             }
             else
                 return false;
+        }
+        public bool RemoveShipment(string trackingCode)
+        {
+            for (int i = 0; i < shipment.Length; i++)
+                if (shipment[i].TrackingCode == trackingCode)
+                {
+                    List<Shipment> shipList = shipment.ToList();
+                    shipList.RemoveAt(i);
+                    return true;
+                }
+            return false;
+        }
+        public void PrintAllShipments()
+        {
+            foreach (Shipment ship in shipment)
+            {
+                Console.WriteLine(ship);
+            }
         }
     }
 }
