@@ -8,9 +8,10 @@ namespace Session02_AssignmentOOP
     {
         private string destinationCountry;
         private decimal customsFee;
-        public InternationalShipment(string _trackingCode, string _description, double _weight, decimal _deliveryFee, DeliveryAddress _destination, decimal _customsFee) : base(_trackingCode, _description, _weight, _deliveryFee, _destination)
+        public InternationalShipment(string _trackingCode, string _description, double _weight, decimal _deliveryFee, DeliveryAddress _destination, decimal _customsFee, string _destinationCountry) : base(_trackingCode, _description, _weight, _deliveryFee, _destination)
         {
             CustomsFee = _customsFee;
+            DestinationCountry = _destinationCountry;
         }
 
         public string DestinationCountry
@@ -38,5 +39,9 @@ namespace Session02_AssignmentOOP
             }
         }
         public override decimal EstimatedCost => DeliveryFee + (decimal)(Weight * 5) + CustomsFee;
+        public override string ToString()
+        {
+            return $"International Shipment: Tracking Code: {TrackingCode}, Description: {Description}, Weight: {Weight} KG, Delivery Fee: {DeliveryFee} EGP, Destination Country: {DestinationCountry}, Customs Fee: {customsFee}, Estimated Cost: {EstimatedCost} EGP";
+        }
     }
 }

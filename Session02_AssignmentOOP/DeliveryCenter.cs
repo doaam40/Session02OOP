@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Session02_AssignmentOOP
 {
@@ -32,7 +33,7 @@ namespace Session02_AssignmentOOP
             get
             {
                 for (int i = 0; i < shipment.Length; i++)
-                    if (shipment[i].TrackingCode == trackingCode)
+                    if (shipment[i]?.TrackingCode == trackingCode)
                         return shipment[i];
                 return default;
             }
@@ -47,15 +48,20 @@ namespace Session02_AssignmentOOP
             else
                 return false;
         }
-        public bool RemoveShipment(string trackingCode)
+        public bool RemoveShipment(Shipment? ship)
         {
-            for (int i = 0; i < shipment.Length; i++)
-                if (shipment[i].TrackingCode == trackingCode)
-                {
-                    List<Shipment> shipList = shipment.ToList();
-                    shipList.RemoveAt(i);
-                    return true;
-                }
+            if (ship != null)
+            {
+                for (int i = 0; i < shipment.Length; i++)
+                    if (shipment[i].TrackingCode == ship.TrackingCode)
+                    {
+                        List<Shipment> shipList = shipment.ToList();
+                        shipList.RemoveAt(i);
+                        shipment = shipList.ToArray();
+                        return true;
+                    }
+                return false;
+            }
             return false;
         }
         public void PrintAllShipments()
